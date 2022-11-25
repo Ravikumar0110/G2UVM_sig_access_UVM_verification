@@ -56,11 +56,17 @@ case (xtn.cmd)
              end:IDLE			   
     xtn.A_ST:
 	          begin:A_ST
+			  if(xtn.a ==1)
 	            a_start_cmd();
+				else
+				b_start_cmd();
 			  end:A_ST
 	 xtn.B_ST:
 	          begin:B_ST
+			  if(xtn.b ==1)
 	            b_start_cmd();
+				else
+				idle_cmd();
 			  end:B_ST
 			  
 endcase
@@ -74,7 +80,7 @@ endtask
 
 task idle_cmd();
       @(this.sprot_if_0.cb); 
-      this.sprot_if_0.cb.start <= 1'b0; 
+      this.sprot_if_0.cb.start <= 1'b1; 
       @ (this.sprot_if_0.cb); 
       this.sprot_if_0.cb.start <= 1'b0;  
 	  
@@ -82,18 +88,21 @@ endtask
 
 task a_start_cmd();
       @(this.sprot_if_0.cb); 
-      this.sprot_if_0.cb.a <= 1'b0; 
-      @(this.sprot_if_0.cb);
       this.sprot_if_0.cb.a <= 1'b1; 
+      @(this.sprot_if_0.cb);
+      this.sprot_if_0.cb.a <= 1'b0; 
+	  
       
 endtask
 	  
  task b_start_cmd();
-	  @(this.sprot_if_0.cb); 
+ begin
+	//  @(this.sprot_if_0.cb); 
 	   @(this.sprot_if_0.cb); 
       this.sprot_if_0.cb.b <= 1'b1; 
       @ (this.sprot_if_0.cb); 
-      this.sprot_if_0.cb.b <= 1'b1; 
+      this.sprot_if_0.cb.b <= 1'b0; 
+	  end
  endtask
 
 endclass
