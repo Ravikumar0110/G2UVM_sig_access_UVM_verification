@@ -16,8 +16,8 @@ interface sprot_if (input bit clk);
 
   // Start of clocking block definition 
   clocking cb @(posedge clk);
-    output a;
-    output b;
+    inout a;
+    inout b;
     output rst_n;
     output start;
     input prot_err;
