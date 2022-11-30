@@ -4,6 +4,7 @@
 // Company Name : Verifworks PVT LTD Banglore
 // Team Member  : Vaibhav , Ravikumar , Navneet , Radhakrishna
 ///////////////////////////////////////////////////////////////
+//`include "uvm_macros.svh"
 typedef enum bit [1:0] {IDLE, A_ST, B_ST} sprot_fsm_t;
 class G2U_sig_access_trans extends uvm_sequence_item;
 
@@ -13,7 +14,7 @@ class G2U_sig_access_trans extends uvm_sequence_item;
    rand logic start_state;
    rand logic next_state;
    rand bit [3:0]cmd;
-   sprot_fsm_t  kind;
+ rand  sprot_fsm_t  kind;
    parameter  IDLE=1'b0,
             A_ST=1'b1,
             B_ST=1'b1;
@@ -27,12 +28,12 @@ class G2U_sig_access_trans extends uvm_sequence_item;
 	`uvm_object_utils_end
 	
 	
- `ifdef aldec
+ `ifdef vcs
   constraint c1 {kind inside {IDLE, A_ST, B_ST},}
   `else
   constraint c1
   {kind dist {IDLE := 2, A_ST := 4, B_ST := 4};}
-  `endif
+    `endif
 	function new (string name = "G2U_sig_access_trans");
 	  super.new(name);
 	endfunction
