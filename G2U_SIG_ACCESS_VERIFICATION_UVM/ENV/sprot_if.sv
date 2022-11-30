@@ -4,6 +4,8 @@
 // Company Name : Verifworks PVT LTD Banglore
 // Team Member  : Vaibhav , Ravikumar , Navneet , Radhakrishna
 ///////////////////////////////////////////////////////////////
+import uvm_pkg::*;
+`include "uvm_macros.svh"
 interface sprot_if (input bit clk);
   logic   a;
   logic   b;
