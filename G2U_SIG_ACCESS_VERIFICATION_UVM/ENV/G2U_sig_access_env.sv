@@ -5,7 +5,8 @@
 // Team Member  : Vaibhav , Ravikumar , Navneet , Radhakrishna
 ///////////////////////////////////////////////////////////////
 
-
+`include "G2U_sig_access_agent.sv"
+`include "G2U_sig_access_scoreboard.sv"
 class Go2UVM_sig_access_env extends uvm_env;
 
     `uvm_component_utils(Go2UVM_sig_access_env)
