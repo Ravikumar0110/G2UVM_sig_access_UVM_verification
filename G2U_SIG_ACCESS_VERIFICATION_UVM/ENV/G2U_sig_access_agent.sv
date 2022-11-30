@@ -4,7 +4,12 @@
 // Company Name : Verifworks PVT LTD Banglore
 // Team Member  : Vaibhav , Ravikumar , Navneet , Radhakrishna
 ///////////////////////////////////////////////////////////////
-
+`include "G2U_sig_access_transaction.sv"
+`include "G2U_sig_access_sequence.sv"
+`include "G2U_sig_access_sequncer.sv"
+`include "G2U_sig_access_driver.sv"
+`include "G2U_sig_access_monitor.sv"
+	
 
 class Go2UVM_sig_access_agent extends uvm_agent;
 
@@ -24,7 +29,7 @@ class Go2UVM_sig_access_agent extends uvm_agent;
 	 mon_h = Go2UVM_sig_access_monitor::type_id::create("mon_h",this);
 	 seqr_h = Go2UVM_sig_access_sequencer::type_id::create("seqr_h",this);
      if (!uvm_config_db#(virtual sprot_if)::get(this,"","vif", vif)) begin
-        `uvm_fatal("RAM_READ_AGENT", "The virtual interface get failed");
+       `uvm_fatal("G2U_sig_access_agent", "The virtual interface get failed");
 		end
    endfunction
    
