@@ -1,9 +1,7 @@
 
-import uvm_pkg::*;
-//`include "uvm_pkg.sv"
-import pkg::*;
+  `include "G2U_sig_access_env.sv"
 class G2U_sig_access_test extends uvm_test;
- `include "uvm_macros.svh"
+// `include "uvm_macros.svh"
   `uvm_component_utils(G2U_sig_access_test)
 
   Go2UVM_sig_access_env env_h;
@@ -23,7 +21,7 @@ class G2U_sig_access_test extends uvm_test;
   
      
   function void end_of_elaboration_phase (uvm_phase phase);
-	uvm_top.print_topology();
+	print();
    endfunction
   
   task run_phase (uvm_phase phase);
