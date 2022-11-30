@@ -71,10 +71,26 @@ case (xtn.cmd)
 			  
 endcase
    uvm_report_info (get_type_name (), $sformatf ("starting force signal"),UVM_LOW, `__FILE__ , `__LINE__ );
+  //signal force for cadence tools
+/*     $xm_force("/sprot_go2uvm/sprot_0/byte_val","'d22");
+    #100;
+     $xm_force("/sprot_go2uvm/sprot_0/byte_val_1", "'haa");
+    #100;
+    */
+//signal force for questa mentor //Adec
      $signal_force("/sprot_go2uvm/sprot_0/byte_val","'d22");
     #100;
     $signal_force("/sprot_go2uvm/sprot_0/byte_val_1", "'haa");
     #100;
+    
+  
+ //signal force for
+ /*   $signal_agent("/sprot_go2uvm/sprot_0/byte_val",22);
+    #100;
+    $signal_agent("/sprot_go2uvm/sprot_0/byte_val_1", 'haa);
+    #100;
+  */
+  
      uvm_report_info (get_type_name (), $sformatf ("End main"),UVM_LOW, `__FILE__ , `__LINE__ );
 endtask
 
