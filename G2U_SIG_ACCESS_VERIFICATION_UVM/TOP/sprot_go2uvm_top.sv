@@ -7,12 +7,12 @@
 // Generating Go2UVM top module for DUT: sprot
 // ---------------------------------------------------------
 
-`include "uvm_pkg.sv"
+`include "sprot_if.sv" 
 `include "G2U_sig_access_test.sv"
-`include "sprot_if.sv"
-import uvm_pkg::*;
-//`include "G2U_sig_access_test.sv"
+
 module sprot_go2uvm;
+  
+//import pkg::*;
   parameter VW_CLK_PERIOD = 10;
 
   // Simple clock generator
